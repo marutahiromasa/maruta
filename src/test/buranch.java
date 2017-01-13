@@ -90,11 +90,13 @@ public class buranch {
 				br = new BufferedReader(new FileReader(fileName));
 				String branch = br.readLine();
 				String commodity = br.readLine();
-				String rcd = br.readLine();
-				System.out.println(branch);
-				System.out.println(commodity);
-				System.out.println(rcd);
-				branchSelce.put(branch , 0L);
+				String  rcd = br.readLine();
+//				System.out.println(branch);
+//				System.out.println(commodity);
+//				System.out.println(rcd);
+				Long.parseLong(rcd);
+				branchSelce.put(branch , rcd);
+
 
 
 
