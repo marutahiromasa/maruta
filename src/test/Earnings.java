@@ -2,7 +2,6 @@ package test;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,7 +22,7 @@ public class Earnings {
 
 				Map<String, String> list = new HashMap<String, String>(); //mapでlistの箱を作成
 
-				 try{
+				
 
 					FileReader fr = new FileReader(f);
 
@@ -39,13 +38,16 @@ public class Earnings {
 
 
 					}
-			    } catch (IOException e) {
-
-			    }
 			}
 		}
 	}
 }
+
+			 	  
+			
+		
+	
+
 
 
 
@@ -104,4 +106,11 @@ public class Earnings {
 //		}
 //
 //	}
+
+//メモ
 //}
+//FileReader fr = new FileReader(f);
+//BufferedReader br = new BufferedReader(fr);
+//String s;
+////ファイルの中身を1行ずつ読み込む 中身がない場合はnull
+//while((s = br.readLine()) != null) {
