@@ -74,7 +74,7 @@ public class buranch {
 		}
 				//売上ファイル
 		List<File> list = new ArrayList();
-		Map<String, Long> FileCode = new HashMap<String, Long>();	 //商品コード･売上額格納
+		Map<String, Long> FileCode = new HashMap<String, Long>();	 //支店コード･売上額格納
 		Map<String, Long>  FileSelce = new HashMap<String, Long>();
 
 		File dir = new File(args[0]);
@@ -88,14 +88,42 @@ public class buranch {
 			BufferedReader br;
 			try{
 				br = new BufferedReader(new FileReader(fileName));
-				String branch = br.readLine();
-				String commodity = br.readLine();
-				String  rcd = br.readLine();
-//				System.out.println(branch);
-//				System.out.println(commodity);
-//				System.out.println(rcd);
-				Long.parseLong(rcd);
-				branchSelce.put(branch , rcd);
+				String branch = br.readLine(); //支店コード、売上合計
+				String commodity = br.readLine(); //商品定義コード、商品売上合計
+				String  rcd = br.readLine();     //売上ファイル
+				long rcd2 = Long.parseLong(rcd);//StringからLong型に変換
+				//ここで値段を足してあげる 値段はbranchに入って
+				Long branchSale = branchSelce.get(branch) + rcd2;
+				Long commoditySale = commoditySelce.get(commodity) + rcd2;
+				commoditySelce.put(commodity , commoditySale);
+				branchSelce.put(branch , branchSale );
+				int s = 1000000000;
+				if( s > branchSelce.get(branch)){
+				System.out.println(branchSelce.get(branch));
+				}
+				else{
+					System.out.println("合計金額が10桁を超えました");
+				}
+				int d = 1000000000;
+				if( d > commoditySelce.get(commodity)){
+					System.out.println(commoditySelce.get(commodity));
+				}
+				else{
+					System.out.println("合計金額が10桁を超えました");
+//				commoditySelce.put(commodity , rcd2);
+				}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
