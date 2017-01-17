@@ -113,10 +113,10 @@ public class buranch {
 			}
 			for(String namekey : branchName.keySet()){
 				System.out.println(namekey);
-				
+
 				for(String key: branchSelce.keySet()){
-					System.out.println(branchSelce);   
-					
+					System.out.println(branchSelce);
+
 				}
 			}
 		}
