@@ -35,7 +35,6 @@ public class buranch {
 				}
 				branchName.put(items[0], items[1]); //branchNameに[0][1]のデータを格納
 				branchSelce.put(items[0], 0L);
-
 			}
 			br.close();
 		}
@@ -97,41 +96,28 @@ public class buranch {
 				Long commoditySale = commoditySelce.get(commodity) + rcd2;
 				commoditySelce.put(commodity , commoditySale);
 				branchSelce.put(branch , branchSale );
+				//branch.lstを基準に8桁の連番ファイル内に指定したキー(001,002)が存在するか確認
 				int s = 1000000000;
-				if( s > branchSelce.get(branch)){
-				System.out.println(branchSelce.get(branch));
+				if( s < branchSelce.get(branch)){
+						System.out.println("合計金額が10桁を超えました");
 				}
-				else{
-					System.out.println("合計金額が10桁を超えました");
-				}
+
 				int d = 1000000000;
-				if( d > commoditySelce.get(commodity)){
-					System.out.println(commoditySelce.get(commodity));
-				}
-				else{
+				if( d < commoditySelce.get(commodity)){
 					System.out.println("合計金額が10桁を超えました");
-//				commoditySelce.put(commodity , rcd2);
 				}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 				br.close();
 			}
 			catch (IOException e){
 				e.printStackTrace();
+			}
+			for(String namekey : branchName.keySet()){
+				System.out.println(namekey);
+				
+				for(String key: branchSelce.keySet()){
+					System.out.println(branchSelce);   
+					
+				}
 			}
 		}
 	}
